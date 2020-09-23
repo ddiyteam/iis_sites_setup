@@ -1,0 +1,43 @@
+[
+	{ 
+		"name": "TestApp", 
+		"port": "8990",
+		"path": "C:\\Deploy\\empty",
+		"appPool": { "name": "TestApp", "isAutoStart": false},
+		"applications": [
+			{ "name":"api", "type":"virtual", "site": "TestApp", "path": "C:\\Deploy\\empty"},
+				{ "name":"tasks", "type":"app", "site": "TestApp//api", "path": "C:\\Deploy\\TestApp_Tasks", 
+						"appPool": { "name": "TestApp_Tasks", "isAutoStart": false},
+						"auth": { "anonymous":true, "basic": false, "windows":true}
+				},
+				{ "name":"services", "type":"app", "site": "TestApp//api", "path": "C:\\Deploy\\TestApp_Services", 
+						"appPool": { "name": "TestApp_Services", "isAutoStart": false},
+						"auth": { "anonymous":false, "basic": false, "windows":true}
+				}					
+		]
+	},	
+	{ 
+		"name": "TestApp2", 
+		"port": "8992",
+		"path": "C:\\Deploy\\TestApp2",
+		"appPool": { "name": "TestApp2", "isAutoStart": true},
+		"auth": { "anonymous":true, "basic": false, "windows":true},
+		"applications": []
+	},
+	{ 
+		"name": "TestApp3", 
+		"port": "8993",
+		"path": "C:\\Deploy\\empty",
+		"appPool": { "name": "TestApp3", "isAutoStart": false},		
+		"applications": [
+				{ "name":"api", "type":"app", "site": "TestApp3", "path": "C:\\Deploy\\TestApp3_API", 
+						"appPool": { "name": "TestApp3_API", "isAutoStart": false},
+						"auth": { "anonymous":true, "basic": false, "windows":true}
+				},
+				{ "name":"ui", "type":"app", "site": "TestApp3", "path": "C:\\Deploy\\TestApp3_UI", 
+						"appPool": { "name": "TestApp3_UI", "isAutoStart": false},
+						"auth": { "anonymous":false, "basic": false, "windows":true}
+				}
+		]
+	}	
+]
