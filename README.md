@@ -9,12 +9,15 @@ Also can be created many configuration files for separated sites sets.
 Description
 ----
 ```services_conf.json```
+
 Configuration file in JSON format. Contains information about sites names, ports, paths, application pools, auth and child sites including virtual directories.
 
 ```services_setup.ps1```
+
 Script for creating IIS sites, application pools and set authentication.  Has 3 input parameters: user login, user password, config file name. Application pools will be created with custom account identity (user login and password).
 
 ```services_cleanup.ps1```
+
 Script for deleting IIS sites and application pools by configuration file. Has 1 input parameter: config file name.
 
 Examples:
